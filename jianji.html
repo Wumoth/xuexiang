@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta charset="utf-8" />
+    <title>分享区-剪辑素材</title>
+    <meta name="description" content="分享区-剪辑素材" />
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      body {
+        margin: 0;
+        height: 100vh;
+        /* 加载背景图 */
+        background-image: url(https://cdn.jsdelivr.net/gh/Wumoth/tuchuang/yusan-min.jpg);
+        /* 背景图垂直、水平均居中 */
+        background-position: center center;
+        /* 背景图不平铺 */
+        background-repeat: no-repeat;
+        /* 当内容高度大于图片高度时，背景图像的位置相对于viewport固定 */
+        background-attachment: fixed;
+        /* 让背景图基于容器大小伸缩 */
+        background-size: cover;
+        /* 设置背景颜色，背景图加载过程中会显示背景色 */
+        background-color: #137ed6;
+      }
+      .shuxiang {
+        display: flex;
+        flex-direction: column;
+      }
+      .hengxiang {
+        flex-direction: row;
+      }
+      .box {
+        height: 70vh;
+        width: 70%;
+        max-width: 600px;
+        background-color: #fff;
+        padding: 30px;
+        border-radius: 4px;
+        box-shadow: rgb(0 0 0 / 20%) 0px 2px 1px -1px,
+          rgb(0 0 0 / 14%) 0px 1px 1px 0px, rgb(0 0 0 / 12%) 0px 1px 3px 0px;
+        overflow-wrap: break-word;
+        word-wrap: break-word;
+        hyphens: auto;
+        text-align: justify;
+        color: #333;
+        font-size: 17px;
+        line-height: 1.7;
+        letter-spacing: 0.034em;
+        font-family: "思源黑体";
+        overflow-y: scroll;
+      }
+      .box::-webkit-scrollbar {
+        display: none; /* Chrome Safari */
+      }
+      a:link {
+        text-decoration: none;
+      }
+      a:visited {
+        text-decoration: none;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+      a:active {
+        text-decoration: underline;
+      }
+      .juzhong {
+        text-align: center;
+      }
+      .yanse {
+        background-color: rgba(190, 190, 190, 0);
+      }
+      .yinYing {
+        box-shadow: rgba(50, 50, 105, 0.15) 0px 2px 5px 0px,
+          rgba(0, 0, 0, 0.05) 0px 1px 1px 0px;
+      }
+      .w {
+        margin: 7px;
+      }
+      .y {
+        margin-right: 7px;
+      }
+      .s {
+        margin-top: 7px;
+      }
+      /*
+      * {
+        border: 1px solid black;
+      }
+      */
+    </style>
+  </head>
+  <body class="shuxiang">
+    <script>
+      (function () {
+        var a_idx = 0;
+        window.onclick = function (event) {
+          var a = new Array(
+            "❤富强❤",
+            "❤民主❤",
+            "❤文明❤",
+            "❤和谐❤",
+            "❤自由❤",
+            "❤平等❤",
+            "❤公正❤",
+            "❤法治❤",
+            "❤爱国❤",
+            "❤敬业❤",
+            "❤诚信❤",
+            "❤友善❤"
+          );
+
+          var heart = document.createElement("b"); //创建b元素
+          heart.onselectstart = new Function("event.returnValue=false"); //防止拖动
+
+          document.body.appendChild(heart).innerHTML = a[a_idx]; //将b元素添加到页面上
+          a_idx = (a_idx + 1) % a.length;
+          heart.style.cssText = "position: fixed;left:-100%;"; //给p元素设置样式
+
+          var f = 16, // 字体大小
+            x = event.clientX - f / 2, // 横坐标
+            y = event.clientY - f, // 纵坐标
+            c = randomColor(), // 随机颜色
+            a = 1, // 透明度
+            s = 1.2; // 放大缩小
+
+          var timer = setInterval(function () {
+            //添加定时器
+            if (a <= 0) {
+              document.body.removeChild(heart);
+              clearInterval(timer);
+            } else {
+              heart.style.cssText =
+                "font-size:16px;cursor: default;position: fixed;color:" +
+                c +
+                ";left:" +
+                x +
+                "px;top:" +
+                y +
+                "px;opacity:" +
+                a +
+                ";transform:scale(" +
+                s +
+                ");";
+
+              y--;
+              a -= 0.016;
+              s += 0.002;
+            }
+          }, 15);
+        };
+        // 随机颜色
+        function randomColor() {
+          return (
+            "rgb(" +
+            ~~(Math.random() * 255) +
+            "," +
+            ~~(Math.random() * 255) +
+            "," +
+            ~~(Math.random() * 255) +
+            ")"
+          );
+        }
+      })();
+    </script>
+    <!--上面-->
+    <div class="shuxiang hengxiang w y s" style="height: 90px">
+      <!--头像名字-->
+      <div class="hengxiang w y s yinYing" style="flex: 1; height: 90px">
+        <div style="height: 90px; line-height: 10px; text-align: center">
+          <h2>学享</h2>
+          <h2>共乐</h2>
+        </div>
+      </div>
+      <!--话语-->
+      <div class="hengxiang w y s yinYing" style="flex: 4; height: 90px">
+        <div
+          style="height: 90px; text-align: justify; text-align-last: justify"
+        >
+          <h1><b>裁出精彩人生</b></h1>
+        </div>
+      </div>
+    </div>
+    <!--下面-->
+    <div
+      class="shuxiang"
+      style="
+        height: 100vh;
+        align-items: center;
+        justify-content: center;
+        overflow: auto;
+      "
+    >
+      <div class="shuxiang box yanse juzhong" style="text-align: justify; text-align-last: justify">
+        <div>
+            <p style="color: black;">提取码为：8926</p>
+          <h4><b>
+            <a href=" https://url88.ctfile.com/d/51086188-59040397-3e0ca8?" style="color: black;">不一样的天空</a>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="" style="color: black;">点击预览</a>
+            </b>
+          </h4>
+          <h4><b>
+            <a href=" https://url88.ctfile.com/d/51086188-59040886-412a21?" style="color: black;">抽线玩法</a>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="" style="color: black;">点击预览</a>
+            </b>
+          </h4>
+          <h4><b>
+            <a href="https://url88.ctfile.com/d/51086188-59040895-d1c42f?" style="color: black;">春天三分屏</a>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="" style="color: black;">点击预览</a>
+            </b>
+          </h4>
+          <h4><b>
+            <a href="https://url88.ctfile.com/d/51086188-59040400-a84a95?" style="color: black;">车臣摇</a>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="" style="color: black;">点击预览</a>
+            </b>
+          </h4>
+          <h4><b>
+            <a href="https://url88.ctfile.com/d/51086188-59040889-191fcd?" style="color: black;">初夏的味道</a>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="" style="color: black;">点击预览</a>
+            </b>
+          </h4>
+          <h4><b>
+            <a href="https://url88.ctfile.com/d/51086188-59040904-6617d1?" style="color: black;">带你去看海</a>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="" style="color: black;">点击预览</a>
+            </b>
+          </h4>
+          <h4><b>
+            <a href=" https://url88.ctfile.com/d/51086188-59040910-abe121?" style="color: black;">动感春天</a>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="" style="color: black;">点击预览</a>
+            </b>
+          </h4>
+          <h4><b>
+            <a href="https://url88.ctfile.com/d/51086188-59040913-0f1761?" style="color: black;">动感单车</a>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="" style="color: black;">点击预览</a>
+            </b>
+          </h4>
+          <h4><b>
+            <a href="https://url88.ctfile.com/d/51086188-59040925-037dda?" style="color: black;">动感汽车一</a>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="" style="color: black;">点击预览</a>
+            </b>
+          </h4>
+          <h4><b>
+            <a href="https://url88.ctfile.com/d/51086188-59040934-608410?" style="color: black;">动感汽车二</a>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="" style="color: black;">点击预览</a>
+            </b>
+          </h4>
+          <h4><b>
+            <a href=" https://url88.ctfile.com/d/51086188-59040937-ca86d3?" style="color: black;">放飞心情</a>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="" style="color: black;">点击预览</a>
+            </b>
+          </h4>
+          <h4><b>
+            <a href="https://url88.ctfile.com/d/51086188-59040949-61cb18?" style="color: black;">分屏卡点跳跃换屏</a>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="" style="color: black;">点击预览</a>
+            </b>
+          </h4>
+          <h4><b>
+            <a href=" https://url88.ctfile.com/d/51086188-59040979-9e3912?" style="color: black;">钢琴分屏音乐卡点</a>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="" style="color: black;">点击预览</a>
+            </b>
+          </h4>
+          <h4><b>
+            <a href=" https://url88.ctfile.com/d/51086188-59040988-716cc6?" style="color: black;">滚动照片墙</a>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="" style="color: black;">点击预览</a>
+            </b>
+          </h4>
+          <h4><b>
+            <a href="" style="color: black;"></a>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="" style="color: black;"></a>
+            </b>
+          </h4>
+          <h4><b>
+            <a href="" style="color: black;"></a>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="" style="color: black;"></a>
+            </b>
+          </h4>
+          <h4><b>
+            <a href="" style="color: black;"></a>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="" style="color: black;"></a>
+            </b>
+          </h4>
+        <p style="font-size: 9px; color: red"></p>
+        <p style="text-align: right"></p>
+        <p style="text-align: right"></p>
+      </div>
+    </div>
+  </body>
+</html>
